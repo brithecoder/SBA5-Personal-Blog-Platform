@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+<body>
+    <div class="containerDiv container-fluid">
+       <h1 id="pageH1">My Personal Blog</h1>
+      
+       <div class="row justify-content-center">
+        <div class="col-12 col-sm-10 col-md-8 col-lg-6">
+
+            <!-- Form Container Card -->
+            <div class="card p-4 p-md-5 modern-card">
+                <div class="card-body">
+                    <h2 class="card-title text-center mb-4 fw-bold">
+                        New Content Submission
+                    </h2>
+
+                    <form id="submissionForm">
+
+                        <!-- Title Input -->
+                        <div class="mb-3">
+                            <label for="title" class="form-label fw-semibold">Title</label>
+                            <input
+                                type="text"
+                                id="title"
+                                name="title"
+                                minlength="2" 
+                                maxlength="20"
+                                required
+                                placeholder="Enter a descriptive title..."
+                                class="form-control"
+                            >
+                        </div>
+                        <span class="error-message" id="titleError"></span>
+
+                        <!-- Content Textarea -->
+                        <div class="mb-4">
+                            <label for="content" class="form-label fw-semibold">Content</label>
+                            <textarea
+                                id="content"
+                                name="content"
+                                minlength="5" 
+                                maxlength="500"
+                                rows="6"
+                                required
+                                placeholder="Write your main content here (up to 500 words)..."
+                                class="form-control"
+                                ></textarea>
+                                <span class="error-message" id="textContentError"></span>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <div class="d-grid">
+                            <button
+                                type="submit"
+                                class="btn btn-primary btn-lg"
+                            >
+                                Submit Content
+                            </button>
+                        </div>
+
+                    </form>
+
+                    <!-- Submission Message Area (Success/Error Messages) -->
+                    <div id="messageArea" class="mt-4 p-3 rounded text-center d-none">
+                        <!-- Message content will be injected here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    
+
+
+
+       
+
+       <!-- blog post go here  -->
+        <ul id="PostList">
+       <div class="card text-center">
+        <div class="card-header">
+          Featured
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">Special title treatment</h5>
+          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+        <div class="card-footer text-body-secondary">
+          2 days ago
+        </div>
+      </div>
+    </ul>
+  </div>
+
+
+
+    <script src="index.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+</body>
+</html>

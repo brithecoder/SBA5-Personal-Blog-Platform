@@ -1,0 +1,26 @@
+.containerDiv{
+    background-color:#3a86ff;
+    text-align: center;
+    padding:20px;
+}
+#pageH1{
+    color: azure;
+}
+/* .modern-card{
+    padding-bottom: 20px;
+} */
+ #PostList{
+    padding-top: 20px;
+    padding-left: 0px;
+ }
+
+ .error-message {
+    display: block;
+    color: #e74c3c; /* Red for error messages */
+    font-size: 0.9em;
+    margin-top: 5px;
+    min-height: 1em; /* Reserve space to prevent layout shifts */
+  }
+  .button-spacing {
+    margin-left: 30px; /* Adjust the value as needed */
+}
