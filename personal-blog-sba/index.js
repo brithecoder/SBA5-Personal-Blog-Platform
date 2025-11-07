@@ -6,15 +6,36 @@ const titleInput = document.getElementById('title');
 const contentInput = document.getElementById('content');
 const now = new Date();
 const dateString = now.toDateString();// Human-readable date string
+const deletedPost = [];
 
+let storedBlogPost;
 
-
+try{
+    storedBlogPost = JSON.parse(localStorage.getItem('userBlogs'));
+} catch (e){
+    console.log('Error parsing blogs from local storage', e);
+    storedBlogPost = null;
+}
+if(storedBlogPost){
+    blogList = storedBlogPost;
+    console.log(storedBlogPost);
+    renderBlogPostList();
+}
 
 function addBlogPost(blogPost){
     blogList.push(blogPost);
     console.log(blogList);
     renderBlogPostList();
+     // Storing an object
+    localStorage.setItem('userBlogs',JSON.stringify(blogList));
+    //retrieving user object
+    const retrievedBlogString = localStorage.getItem('userBlogs');
+    const retrievedBlogArray = JSON.parse(retrievedBlogString);
+    console.log(retrievedBlogArray);
+    renderBlogPostList();
 }
+// localStorage.clear(); 
+// This would remove blog etries and any other stored items.
 
 
 function renderBlogPostList(){
@@ -22,7 +43,7 @@ function renderBlogPostList(){
     blogList.forEach(post => {
        
         const card = document.createElement('div');
-         card.classList.add('card','text-center'); 
+         card.classList.add('card','text-center','card-spacing'); 
          card.id = post.id;
        
          const cardHeader = document.createElement('div');
@@ -103,8 +124,6 @@ document.getElementById('submissionForm').addEventListener('submit', function(ev
 //event Listeners for Blog Post form 
 
 //title validity 
-// const titleInput = document.getElementById('title');
-
 titleInput.addEventListener('input',(event) =>{
     if(titleInput.validity.valueMissing){
         titleInput.setCustomValidity('Please add title to blog post');
@@ -120,7 +139,6 @@ titleInput.addEventListener('input',(event) =>{
 });
 
 //content Validity
-// const contentInput = document.getElementById('content');
 contentInput.addEventListener('input',(event) =>{
     if(contentInput.validity.valueMissing){
         contentInput.setCustomValidity('Please add content to blog post');
@@ -139,11 +157,14 @@ postListBody.addEventListener('click',(event)=>{
  if(event.target.classList.contains('removeButton')){
     console.log('Remove Button was CLicked' );
     const cardToRemove = event.target.closest('.card'); // Find the closest parent with class 'card'
+    // deletedPost.push(cardToRemove);
+    //     console.log(deletedPost);
     // const idOfCardToRemove = cardToRemove.querySelector(); //find the ID of card to remove
     if (cardToRemove) {
         const cardId = cardToRemove.id; 
          cardToRemove.parentElement.removeChild(cardToRemove); // Remove the card from its parent
         removePostFromArray(cardId);
+        localStorage.setItem('userBlogs',JSON.stringify(blogList));
     }
  }
 });
