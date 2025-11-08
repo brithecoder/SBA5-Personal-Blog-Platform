@@ -5,10 +5,10 @@
 }
 #pageH1{
     color: azure;
+    font-family: "DM Sans", sans-serif;
+    font-weight: 900;
+
 }
-/* .modern-card{
-    padding-bottom: 20px;
-} */
  #PostList{
     padding-top: 20px;
     padding-left: 0px;
@@ -26,4 +26,17 @@
 }
 .card-spacing{
     margin-bottom: 10px;
+}
+/* Custom styles to visually highlight the editable areas */
+.editing-active {
+    border: 1px solid #3b82f6; /* Blue border */
+    padding: 20px;
+    margin: 8px; 
+    border-radius: 0.375rem;
+    background-color: #f0f9ff; /* Light blue background */
+    transition: all 0.2s;
+}
+/* Ensure cursor shows text can be edited */
+[contenteditable="true"] {
+    cursor: text;
 }
