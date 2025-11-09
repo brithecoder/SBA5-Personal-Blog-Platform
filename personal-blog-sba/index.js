@@ -167,8 +167,6 @@ document.getElementById("submissionForm")
     const blogTitle = document.getElementById("title").value;
     const blogContent = document.getElementById("content").value;
     const messageArea = document.getElementById("messageArea");
-    // Log data to the console for demonstration
-    console.log(blogList);
 
     let newBlogPost = {
       id: Date.now(),
@@ -243,13 +241,9 @@ document.addEventListener("click", (event) => {
   const button = event.target;
   const cardToEdit = event.target.closest(".card"); // Find the closest parent with class 'card'
   if (cardToEdit) {
-    const cardId = cardToEdit.id;
     if (button.classList.contains("editButton")) {
-      console.log("card to edit ID:" + cardId);
-      console.log(cardToEdit);
       EditPost(cardToEdit);
     } else if (button.classList.contains("saveButton")) {
-      console.log("save was clicked");
       const cardToSave = event.target.closest(".card"); // Find the closest parent with class 'card'
       if (cardToSave) {
         savePost(cardToSave);
